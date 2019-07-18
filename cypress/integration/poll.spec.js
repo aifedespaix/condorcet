@@ -1,5 +1,7 @@
 context("Poll", () => {
   beforeEach(() => {
+    cy.viewport("iphone-6");
+
     cy.visit("http://localhost:8080");
     cy.login();
   });
@@ -17,18 +19,28 @@ context("Poll", () => {
       "Peut être que j'aurais des problèmes avec ce test mais au moins il est marrant"
     );
 
-    cy.get("[data-testid=form-answer]").type("Sadam Hussein");
+    [
+      "Sadam Hussein",
+      "Macron",
+      "Jean Smaug",
+      "Pinochet",
+      "Poutine",
+      "Justin Trudeau"
+    ].forEach(item => {
+      cy.get("[data-testid=form-answer]").type(item);
 
-    cy.get("[data-testid=form-addAnswer]").click();
+      cy.get("[data-testid=form-addAnswer]").click();
+    });
 
-    cy.get("[data-testid=form-answer]").type("Macron");
+    cy.get("[data-testid=form-answerProposal-jean-smaug]").click();
 
-    cy.get("[data-testid=form-addAnswer]").click();
+    cy.scrollTo("bottom");
 
-    cy.get("[data-testid=form-answer]").type("Pinochet");
+    cy.get("[data-testid=burger-button]").click();
 
-    cy.get("[data-testid=form-addAnswer]").click();
+    cy.get("[data-testid=navlink-user-polls]").click();
 
+    cy.get("[data-testid=voter-2ar35P5AHVo60r0xko55]").click();
     // cy.get('[data-testid=form-submit]').click()
   });
 });

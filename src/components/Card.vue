@@ -10,6 +10,7 @@
     <div class="flex justify-between flex-wrap px-6 py-4">
       <router-link
         v-if="users.includes(userId)"
+        :data-testid="isActive ? `voter-${id}` : `resultat-${id}`"
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full my-1"
         tag="button"
         :to="{

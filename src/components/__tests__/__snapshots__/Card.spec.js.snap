@@ -10,7 +10,7 @@ exports[`Card.vue should render when there is no notifications 1`] = `
     <p class="text-gray-700 text-base">Qui repellendus est aliquam vel qui.</p>
   </div>
   <div class="flex justify-between flex-wrap px-6 py-4">
-    <router-link-stub tag="button" to="[object Object]" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full my-1">Voter</router-link-stub> <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded w-full my-1">
+    <router-link-stub data-testid="voter-MOCK_POLL_ID" tag="button" to="[object Object]" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full my-1">Voter</router-link-stub> <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded w-full my-1">
       Partager
     </button> <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full my-1">
       Fermer

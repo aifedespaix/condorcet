@@ -79,7 +79,7 @@ jobs:
     executor: node
     steps:
       - checkout
-      - git push -q https://${GITHUB_PERSONAL_TOKEN}@github.com/jean-smaug/condorcet.git master:dev
+      - run: git push -q https://${GITHUB_PERSONAL_TOKEN}@github.com/jean-smaug/condorcet.git master:dev
 
 workflows:
   version: 2

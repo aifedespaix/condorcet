@@ -4,9 +4,10 @@
       <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="question"
-            >{{ $t("poll.fields.question") }} *</label
+            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 select-none flex items-center"
+            for="question">
+            <i class="material-icons">help</i>
+            {{ $t("poll.fields.question") }} *</label
           >
           <input
             id="question"
@@ -17,9 +18,11 @@
           />
 
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="description"
-            >{{ $t("poll.fields.description") }}</label
+            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 select-none flex items-center"
+            for="description">
+            <i class="material-icons">create</i>
+            {{ $t("poll.fields.description") }}
+          </label
           >
           <textarea
             id="description"
@@ -27,35 +30,15 @@
             data-testid="form-description"
             class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
           ></textarea>
-
-          <div class="md:flex md:items-center mb-6">
-            <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="isPublic"
-              >{{ $t("poll.fields.isPublic") }}</label
-            >
-            <input
-              id="isPublic"
-              v-model="isPublic"
-              data-testid="form-isPublic"
-              class="mr-2 leading-tight"
-              type="checkbox"
-              name="isPublic"
-            />
-            <label
-              for="isPublic"
-              class="md:w-2/3 block text-gray-500 font-bold inline-block"
-            >
-              <span class="text-sm">{{ isPublicText }}</span>
-            </label>
-          </div>
         </div>
         <div class="w-full md:w-1/2 px-3">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 select-none flex items-center"
             for="answer"
-            >{{ $t("poll.fields.answer") }} *</label
           >
+            <i class="material-icons">question_answer</i>
+            {{ $t("poll.fields.answer") }} *
+          </label>
           <div class="flex">
             <input
               id="answer"
@@ -68,9 +51,10 @@
             />
             <button
               data-testid="form-addAnswer"
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 flex"
               @click.prevent="addAnswer"
             >
+              <i class="material-icons mr-1">add</i>
               {{ $t("global.add") }}
             </button>
           </div>
@@ -92,16 +76,43 @@
             </li>
           </ul>
         </div>
-
-        <div class="w-full mt-4 px-3 flex justify-center">
+        <div class="w-full mt-4 px-3 flex flex-col justify-center items-center">
+          <div class="md:flex md:items-center mb-1">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold whitespace-no-wrap flex items-center mr-1 select-none"
+              for="isPublic"
+            >
+              <i v-if="isPublic" class="material-icons">public</i>
+              <i v-else class="material-icons">lock</i>
+              {{ $t("poll.fields.isPublic") }}
+            </label>
+            <input
+              id="isPublic"
+              v-model="isPublic"
+              data-testid="form-isPublic"
+              class="mr-2 leading-tight"
+              type="checkbox"
+              name="isPublic"
+            />
+            <label
+              for="isPublic"
+              class="md:w-2/3 block text-gray-500 font-bold inline-block"
+            >
+              <span class="text-sm">{{ isPublicText }}</span>
+            </label>
+          </div>
           <button
             data-testid="form-submit"
             :disabled="disabledSubmit"
-            class="w-1/3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            class="w-1/3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex flex-wrap justify-between"
             :class="disabledSubmit && 'opacity-50 cursor-not-allowed'"
             @click.prevent="submitPoll"
           >
-            {{ $t("global.create") }}
+            <span class="w-1/3"></span>
+            <span class="w-1/3">{{ $t("global.create") }}</span>
+            <span class="w-1/3 flex justify-end">
+              <i class="material-icons">add</i>
+            </span>
           </button>
         </div>
       </div>

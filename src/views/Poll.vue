@@ -2,7 +2,12 @@
   <div>
     <p class="text-center">{{ $t("poll.dragAndDrop") }}</p>
 
-    <SortableList v-model="answers" class="mt-6 mx-auto w-full px-2" lock-axis="y" @input="onMove">
+    <SortableList
+      v-model="answers"
+      class="mt-6 mx-auto w-full px-2"
+      lock-axis="y"
+      @input="onMove"
+    >
       <SortableItem
         v-for="(answer, index) in answers"
         :key="answer.rank"
@@ -16,7 +21,9 @@
       data-testid="voter"
       class="mt-4 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       @click="vote"
-    >{{ $t("global.vote") }}</button>
+    >
+      {{ $t("global.vote") }}
+    </button>
   </div>
 </template>
 

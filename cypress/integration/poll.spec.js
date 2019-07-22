@@ -6,7 +6,7 @@ context("Poll", () => {
     cy.login();
   });
 
-  it("should fill poll form", () => {
+  it("should create poll", () => {
     cy.get("[data-testid=burger-button]").click();
 
     cy.get("[data-testid=navlink-poll-creation]").click();
@@ -36,7 +36,7 @@ context("Poll", () => {
 
     cy.scrollTo("bottom");
 
-    // cy.get('[data-testid=form-submit]').click()
+    cy.get('[data-testid=form-submit]').click()
 
   });
   
@@ -44,6 +44,22 @@ context("Poll", () => {
     cy.get("[data-testid=burger-button]").click();
   
     cy.get("[data-testid=navlink-user-polls]").click();
+  
+    cy.get('[data-testid="voter-Quel-est-le-chef-d\'etat-le-plus-street-cred"]').click()
+
+    cy.get('[data-testid=vote]').click()
+  })
+
+  it.only('should go to the result screen', () => {
+    cy.get("[data-testid=burger-button]").click();
+  
+    cy.get("[data-testid=navlink-user-polls]").click();
+
+    cy.get('[data-testid="close-Quel-est-le-chef-d\'etat-le-plus-street-cred"]').click()
+
+    cy.wait(2000)
+    
+    cy.get('[data-testid="results-Quel-est-le-chef-d\'etat-le-plus-street-cred"]').click()
   
     
   })

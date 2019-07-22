@@ -11,7 +11,7 @@
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
     "setup": "yarn install && cpy .env.example . --rename=.env",
     "teo": "yarn test:e2e:open",
-    "test:e2e": "yarn test:e2e:config && cypress run --env envName=stage",
+    "test:e2e": "yarn test:e2e:config && cypress run",
     "test:e2e:config": "cypress-firebase createTestEnvFile",
     "test:e2e:open": "yarn test:e2e:config && cypress open",
     "test:unit": "vue-cli-service test:unit",

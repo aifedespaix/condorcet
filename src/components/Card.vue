@@ -57,6 +57,7 @@
 
       <button
         v-if="owner === userId"
+        data-testid="delete"
         class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full my-1"
         @click.prevent="$emit('onDelete', id)"
       >

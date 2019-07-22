@@ -45,12 +45,12 @@ context("Poll", () => {
   
     cy.get("[data-testid=navlink-user-polls]").click();
   
-    cy.get('[data-testid="voter-Quel-est-le-chef-d\'etat-le-plus-street-cred"]').click()
+    cy.get('[data-testid="vote-Quel-est-le-chef-d\'etat-le-plus-street-cred"]').click()
 
     cy.get('[data-testid=vote]').click()
   })
 
-  it.only('should go to the result screen', () => {
+  it('should go to the result screen', () => {
     cy.get("[data-testid=burger-button]").click();
   
     cy.get("[data-testid=navlink-user-polls]").click();
@@ -60,7 +60,13 @@ context("Poll", () => {
     cy.wait(2000)
     
     cy.get('[data-testid="results-Quel-est-le-chef-d\'etat-le-plus-street-cred"]').click()
+  })
   
-    
+  it('should delete poll', () => {
+    cy.get("[data-testid=burger-button]").click();
+  
+    cy.get("[data-testid=navlink-user-polls]").click();
+
+    cy.get('[data-testid=delete]').click()
   })
 });

@@ -76,6 +76,7 @@ jobs:
       - run: yarn firebase deploy --token "$FIREBASE_TOKEN" --only hosting
 
   sync_github:
+    executor: node
     steps:
       - checkout
       - git push -q https://${GITHUB_PERSONAL_TOKEN}@github.com/jean-smaug/condorcet.git master:dev

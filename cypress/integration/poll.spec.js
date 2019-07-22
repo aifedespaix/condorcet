@@ -36,11 +36,15 @@ context("Poll", () => {
 
     cy.scrollTo("bottom");
 
-    cy.get("[data-testid=burger-button]").click();
-
-    cy.get("[data-testid=navlink-user-polls]").click();
-
-    cy.get("[data-testid=voter-2ar35P5AHVo60r0xko55]").click();
     // cy.get('[data-testid=form-submit]').click()
+
   });
+  
+  it('should go to the vote screen', () => {
+    cy.get("[data-testid=burger-button]").click();
+  
+    cy.get("[data-testid=navlink-user-polls]").click();
+  
+    
+  })
 });

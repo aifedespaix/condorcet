@@ -64,7 +64,7 @@ jobs:
           command: yarn firebase serve --only hosting -p 8080
           background: true
       - run: yarn cypress install
-      - run: echo $SERVICE_ACCOUNT > ./serviceAccount.json
+      - run: echo ${SERVICE_ACCOUNT} > ./serviceAccount.json
       - run: yarn test:e2e
 
   deploy:
@@ -73,7 +73,7 @@ jobs:
       - checkout_and_restore_cache
       - attach_workspace:
           at: ~/app
-      - run: yarn firebase deploy --token "$FIREBASE_TOKEN" --only hosting
+      - run: yarn firebase deploy --token "${FIREBASE_TOKEN}" --only hosting
 
   sync_github:
     executor: node

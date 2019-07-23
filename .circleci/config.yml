@@ -79,6 +79,7 @@ jobs:
     executor: node
     steps:
       - checkout
+      - run: echo ${CIRCLE_PULL_REQUEST}
       - run: git push -q https://${GITHUB_PERSONAL_TOKEN}@github.com/jean-smaug/condorcet.git master:dev
 
 workflows:
@@ -89,33 +90,27 @@ workflows:
           filters:
             branches:
               only: ci-for-fork
-
-      - install
-
-      - build:
-          requires:
-            - install
-
-      - lint:
-          requires:
-            - build
-
-      - test_unit:
-          requires:
-            - build
-
-      - test_e2e:
-          requires:
-            - build
-          filters:
-            branches:
-              only: /^(?!pull\/).*$/
-
-      - deploy:
-          requires:
-            - lint
-            - test_unit
-            - test_e2e
-          filters:
-            branches:
-              only: master
+      # - install
+      # - build:
+      #     requires:
+      #       - install
+      # - lint:
+      #     requires:
+      #       - build
+      # - test_unit:
+      #     requires:
+      #       - build
+      # - test_e2e:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only: /^(?!pull\/).*$/
+      # - deploy:
+      #     requires:
+      #       - lint
+      #       - test_unit
+      #       - test_e2e
+      #     filters:
+      #       branches:
+      #         only: master

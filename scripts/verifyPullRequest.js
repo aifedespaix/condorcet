@@ -5,7 +5,7 @@ const graphql = require('@octokit/graphql').defaults({
 })
 
 async function main() {
-    const { id, baseRefName } = await graphql(`
+    const { repository: {pullRequest:{id, baseRefName}} } = await graphql(`
         {
   repository(owner: "jean-smaug", name: "condorcet") {
     pullRequest(number: 111) {

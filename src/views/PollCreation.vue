@@ -159,7 +159,7 @@ export default {
           owner: this.userId,
           users: [this.userId],
           isPublic: this.isPublic,
-          isActive: false,
+          isActive: true,
           token: randomString({ length: 20 })
         });
 

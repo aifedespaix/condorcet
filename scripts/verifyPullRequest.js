@@ -21,7 +21,7 @@ async function main() {
         mutation {
             addComment(input: {
                 subjectId: "${id}",
-                body: "👋\n Merci de changer la branche cible de \`master\` vers \`dev\`"
+                body: "👋 Merci de changer la branche de base de \`master\` vers \`dev\`"
               }) {
                 clientMutationId
               }

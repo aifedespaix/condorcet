@@ -16,12 +16,12 @@ async function main() {
 }
 `)
 
-    if(baseRefName !== "dev") {
+    if(baseRefName === "master") {
         await graphql(`
         mutation {
             addComment(input: {
                 subjectId: "${id}",
-                body: "salut les gens \n fezfz"
+                body: "👋\n Merci de changer la branche cible de \`master\` vers \`dev\`"
               }) {
                 clientMutationId
               }

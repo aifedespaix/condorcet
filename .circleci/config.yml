@@ -78,7 +78,7 @@ jobs:
   sync_github:
     executor: node
     steps:
-      - checkout
+      - checkout_and_restore_cache
       - run: echo ${CIRCLE_PULL_REQUEST}
       - run: GITHUB_PERSONAL_TOKEN=${GITHUB_PERSONAL_TOKEN} node scripts/verifyPullRequest.js
       # - run: git push -q https://${GITHUB_PERSONAL_TOKEN}@github.com/jean-smaug/condorcet.git master:dev
@@ -87,11 +87,11 @@ workflows:
   version: 2
   integration:
     jobs:
+      - install
       - sync_github:
           filters:
             branches:
               only: ci-for-fork
-      # - install
       # - build:
       #     requires:
       #       - install

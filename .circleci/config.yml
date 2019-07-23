@@ -89,6 +89,8 @@ workflows:
     jobs:
       - install
       - sync_github:
+          requires:
+            - install
           filters:
             branches:
               only: ci-for-fork
